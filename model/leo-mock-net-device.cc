@@ -37,8 +37,8 @@ LeoMockNetDevice::GetTypeId (void)
     .SetGroupName ("Leo")
     .AddConstructor<LeoMockNetDevice> ()
     .AddAttribute ("DeviceType", "The type of the mocked device",
-                   EnumValue (),
-                   MakeEnumAccessor (&LeoMockNetDevice::m_deviceType),
+                   EnumValue (DeviceType::GND),  // Is this line correct?
+                   MakeEnumAccessor<DeviceType> (&LeoMockNetDevice::m_deviceType),
                    MakeEnumChecker (
                      DeviceType::GND, "ns3::LeoMockNetDevice::NetDeviceType::GND",
                      DeviceType::SAT, "ns3::LeoMockNetDevice::NetDeviceType::SAT"))
