@@ -49,8 +49,8 @@ NdCacheHelper::Install (NetDeviceContainer &devices, Ipv6InterfaceContainer &int
           Ptr<NetDevice> otherDevice = devices.Get (j);
           Ptr<LeoMockNetDevice> leoDev = DynamicCast<LeoMockNetDevice> (dev);
           Ptr<LeoMockNetDevice> otherLeoDev = DynamicCast<LeoMockNetDevice> (otherDevice);
-          if (i == j || (leoDev != 0
-              && otherLeoDev != 0
+          if (i == j || (leoDev != nullptr
+              && otherLeoDev != nullptr
               && leoDev->GetDeviceType () == otherLeoDev->GetDeviceType ()))
             {
               continue;
@@ -63,7 +63,7 @@ NdCacheHelper::Install (NetDeviceContainer &devices, Ipv6InterfaceContainer &int
 
           // update cache
           NdiscCache::Entry* entry = cache->Lookup (ipaddr);
-          if (entry == 0)
+          if (entry == nullptr)
             {
               entry = cache->Add (ipaddr);
             }

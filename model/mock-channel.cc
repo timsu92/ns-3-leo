@@ -93,7 +93,7 @@ int32_t
 MockChannel::Attach (Ptr<MockNetDevice> device)
 {
   NS_LOG_FUNCTION (this << device);
-  NS_ASSERT (device != 0);
+  NS_ASSERT (device != nullptr);
   m_link.push_back(device);
   return  m_link.size() - 1;
 }
@@ -177,10 +177,10 @@ MockChannel::Deliver (
   double txPower = src->GetTxPower ();
   double rxPower = txPower;
 
-  if (srcMob != 0 && dstMob != 0)
+  if (srcMob != nullptr && dstMob != nullptr)
     {
       Ptr<PropagationLossModel> pLoss = GetPropagationLoss ();
-      if (pLoss != 0)
+      if (pLoss != nullptr)
     	{
       	  // check if signal reaches destination
       	  rxPower = pLoss->CalcRxPower (txPower, srcMob, dstMob);

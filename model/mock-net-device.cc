@@ -256,7 +256,7 @@ MockNetDevice::DoInitialize (void)
 {
   if (m_queueInterface)
     {
-      NS_ASSERT_MSG (m_queue != 0, "A Queue object has not been attached to the device");
+      NS_ASSERT_MSG (m_queue != nullptr, "A Queue object has not been attached to the device");
 
       // connect the traced callbacks of m_queue to the static methods provided by
       // the NetDeviceQueue class to support flow control and dynamic queue limits.
@@ -272,12 +272,12 @@ void
 MockNetDevice::NotifyNewAggregate (void)
 {
   NS_LOG_FUNCTION (this);
-  if (m_queueInterface == 0)
+  if (m_queueInterface == nullptr)
     {
       Ptr<NetDeviceQueueInterface> ndqi = this->GetObject<NetDeviceQueueInterface> ();
       //verify that it's a valid netdevice queue interface and that
       //the netdevice queue interface was not set before
-      if (ndqi != 0)
+      if (ndqi != nullptr)
         {
           m_queueInterface = ndqi;
         }
@@ -360,13 +360,13 @@ MockNetDevice::TransmitComplete (const Address &dest)
   NS_ASSERT_MSG (m_txMachineState == BUSY, "Must be BUSY if transmitting");
   m_txMachineState = READY;
 
-  NS_ASSERT_MSG (m_currentPkt != 0, "MockNetDevice::TransmitComplete(): m_currentPkt zero");
+  NS_ASSERT_MSG (m_currentPkt != nullptr, "MockNetDevice::TransmitComplete(): m_currentPkt zero");
 
   m_phyTxEndTrace (m_currentPkt);
-  m_currentPkt = 0;
+  m_currentPkt = nullptr;
 
   Ptr<Packet> p = m_queue->Dequeue ();
-  if (p == 0)
+  if (p == nullptr)
     {
       NS_LOG_LOGIC ("No pending packets in device queue after tx complete");
       return;

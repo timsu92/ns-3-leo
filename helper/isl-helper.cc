@@ -83,7 +83,7 @@ IslHelper::EnablePcapInternal (std::string prefix, Ptr<NetDevice> nd, bool promi
   // the system.  We can only deal with devices of type MockNetDevice.
   //
   Ptr<MockNetDevice> device = nd->GetObject<MockNetDevice> ();
-  if (device == 0)
+  if (device == nullptr)
     {
       NS_LOG_INFO ("IslHelper::EnablePcapInternal(): Device " << device << " not of type ns3::MockNetDevice");
       return;
@@ -119,7 +119,7 @@ IslHelper::EnableAsciiInternal (
   // the system.  We can only deal with devices of type MockNetDevice.
   //
   Ptr<MockNetDevice> device = nd->GetObject<MockNetDevice> ();
-  if (device == 0)
+  if (device == nullptr)
     {
       NS_LOG_INFO ("IslHelper::EnableAsciiInternal(): Device " << device <<
                    " not of type ns3::MockNetDevice");
@@ -138,7 +138,7 @@ IslHelper::EnableAsciiInternal (
   // since there will be one file per context and therefore the context would
   // be redundant.
   //
-  if (stream == 0)
+  if (stream == nullptr)
     {
       //
       // Set up an output stream object to deal with private ofstream copy
