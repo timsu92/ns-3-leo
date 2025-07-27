@@ -52,6 +52,7 @@ build_lib(
                     ${libflow-monitor}
                     ${libapplications}
                     ${libnetanim}
+                    ${libpoint-to-point}
   TEST_SOURCES # equivalent to module_test.source
     test/ground-node-helper-test-suite.cc
     test/isl-mock-channel-test-suite.cc
