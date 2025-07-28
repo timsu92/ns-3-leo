@@ -20,8 +20,10 @@
 #define MOCK_NET_DEVICE_H
 
 #include <cstring>
+#include <list>
 
 #include "ns3/address.h"
+#include "ns3/queue-fwd.h"
 #include "ns3/node.h"
 #include "ns3/net-device.h"
 #include "ns3/callback.h"
@@ -44,7 +46,6 @@
 
 namespace ns3 {
 
-template <typename Item> class Queue;
 class NetDeviceQueueInterface;
 class MockChannel;
 class ErrorModel;

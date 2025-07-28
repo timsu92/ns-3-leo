@@ -50,8 +50,8 @@ ArpCacheHelper::Install (NetDeviceContainer &devices, Ipv4InterfaceContainer &in
           Ptr<NetDevice> otherDevice = devices.Get (j);
           Ptr<LeoMockNetDevice> leoDev = DynamicCast<LeoMockNetDevice> (dev);
           Ptr<LeoMockNetDevice> otherLeoDev = DynamicCast<LeoMockNetDevice> (otherDevice);
-          if (i == j || (leoDev != 0
-              && otherLeoDev != 0
+          if (i == j || (leoDev != nullptr
+              && otherLeoDev != nullptr
               && leoDev->GetDeviceType () == otherLeoDev->GetDeviceType ()))
             {
               continue;
@@ -64,7 +64,7 @@ ArpCacheHelper::Install (NetDeviceContainer &devices, Ipv4InterfaceContainer &in
 
           // update cache
           ArpCache::Entry* entry = cache->Lookup (ipaddr);
-          if (entry == 0)
+          if (entry == nullptr)
             {
               entry = cache->Add (ipaddr);
             }

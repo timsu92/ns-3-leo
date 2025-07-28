@@ -216,7 +216,7 @@ LeoChannelHelper::EnablePcapInternal (std::string prefix, Ptr<NetDevice> nd, boo
   // the system.  We can only deal with devices of type LeoMockNetDevice.
   //
   Ptr<LeoMockNetDevice> device = nd->GetObject<LeoMockNetDevice> ();
-  if (device == 0)
+  if (device == nullptr)
     {
       NS_LOG_INFO ("LeoChannelHelper::EnablePcapInternal(): Device " << device << " not of type ns3::LeoMockNetDevice");
       return;
@@ -252,7 +252,7 @@ LeoChannelHelper::EnableAsciiInternal (
   // the system.  We can only deal with devices of type LeoMockNetDevice.
   //
   Ptr<LeoMockNetDevice> device = nd->GetObject<LeoMockNetDevice> ();
-  if (device == 0)
+  if (device == nullptr)
     {
       NS_LOG_INFO ("LeoChannelHelper::EnableAsciiInternal(): Device " << device <<
                    " not of type ns3::LeoMockNetDevice");
@@ -271,7 +271,7 @@ LeoChannelHelper::EnableAsciiInternal (
   // since there will be one file per context and therefore the context would
   // be redundant.
   //
-  if (stream == 0)
+  if (stream == nullptr)
     {
       //
       // Set up an output stream object to deal with private ofstream copy
